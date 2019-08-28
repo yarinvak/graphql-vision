@@ -1,18 +1,23 @@
 import {DBHandler} from "../db/db";
-export const getFieldUsagesResolver =  (dbHandler: DBHandler) => {
+
+export const getFieldUsagesResolver = (dbHandler: DBHandler) => {
     return () => {
         let fieldUsages: any = {};
         dbHandler.db.traces.forEach(trace => {
+            let pathsTraveled = [];
             trace.execution.resolvers.forEach(resolver => {
                 let path = mapPath(resolver.path);
                 if (path == '') return;
                 if (!fieldUsages[path]) {
                     fieldUsages[path] = {count: 1, duration: resolver.duration};
-                }
-                else {
-                    fieldUsages[path].count++;
+                } else {
+                    if (pathsTraveled.indexOf(path) == -1) {
+                        fieldUsages[path].count++;
+                    }
+
                     fieldUsages[path].duration += resolver.duration;
                 }
+                pathsTraveled.push(path);
             });
         });
 
@@ -39,9 +44,9 @@ const mapPath = (pathArray: any[]) => {
 
     let newPath = '';
     pathArray.forEach(path => {
-        // if (!isNaN(path)) {
-        //     return;
-        // }
+        if (!isNaN(path)) {
+            return;
+        }
         newPath += '/';
         newPath += path;
     });

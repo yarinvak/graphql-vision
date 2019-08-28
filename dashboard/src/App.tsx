@@ -6,7 +6,7 @@ const App: React.FC = () => {
 
     return (
         <div>
-            <DashBoard></DashBoard>
+            <DashBoard endpoint="http://localhost:4000/graphql" serviceName="Books Repository"/>
         </div>
     );
 };

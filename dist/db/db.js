@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var DBHandler = (function () {
+var DBHandler = /** @class */ (function () {
     function DBHandler() {
         this.db = {};
     }

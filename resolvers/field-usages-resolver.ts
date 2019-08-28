@@ -39,9 +39,9 @@ const mapPath = (pathArray: any[]) => {
 
     let newPath = '';
     pathArray.forEach(path => {
-        if (!isNaN(path)) {
-            return;
-        }
+        // if (!isNaN(path)) {
+        //     return;
+        // }
         newPath += '/';
         newPath += path;
     });

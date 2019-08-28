@@ -37,9 +37,9 @@ var mapPath = function (pathArray) {
     }
     var newPath = '';
     pathArray.forEach(function (path) {
-        if (!isNaN(path)) {
-            return;
-        }
+        // if (!isNaN(path)) {
+        //     return;
+        // }
         newPath += '/';
         newPath += path;
     });

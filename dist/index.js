@@ -1,6 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var apollo_server_1 = require("apollo-server");
+var apollo_server_express_1 = require("apollo-server-express");
+var express_1 = __importDefault(require("express"));
 var query_1 = require("./schema/query");
 var mutation_1 = require("./schema/mutation");
 var tracerInput_1 = require("./schema/input/tracerInput");
@@ -24,8 +28,11 @@ var resolvers = {
         }
     }
 };
-var server = new apollo_server_1.ApolloServer({ typeDefs: [query_1.queryDef, mutation_1.mutationDef, tracerInput_1.tracingDef, fieldUsage_1.fieldUsageDef], resolvers: resolvers });
-server.listen().then(function (_a) {
-    var url = _a.url;
-    console.log("\uD83D\uDE80  Server ready at " + url);
+var app = express_1.default();
+var port = 4000;
+app.get('/', function (req, res) { return res.send('Hello World'); });
+var server = new apollo_server_express_1.ApolloServer({ typeDefs: [query_1.queryDef, mutation_1.mutationDef, tracerInput_1.tracingDef, fieldUsage_1.fieldUsageDef], resolvers: resolvers });
+server.applyMiddleware({ app: app });
+app.listen(port, function () {
+    console.log("\uD83D\uDE80  Server ready at http://localhost:4000");
 });

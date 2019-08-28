@@ -1,23 +1,23 @@
 import React from 'react';
-import './App.css';
-import MainNavbar from "./components/navbar/navbar";
-import FieldUsageTable from "./components/field-usage-table/field-usage-table";
+import ReactDOM from 'react-dom';
+
+import './dashboard.css';
+import MainNavbar from "../navbar/navbar";
+import FieldUsageTable from "../field-usage-table/field-usage-table";
 import {ApolloProvider} from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
-import FieldUsagePie from "./components/field-usage-pie/field-usage-pie";
+import FieldUsagePie from "../field-usage-pie/field-usage-pie";
 
-const endpoint = 'http://localhost:4000';
+const endpoint = 'http://localhost:4000/graphql';
 
 const client = new ApolloClient({
     uri: endpoint,
 });
 
-
-const App: React.FC = () => {
-
+const DashBoard: React.FC = () => {
     return (
         <ApolloProvider client={client}>
-            <div className="App">
+            <div className="Dash">
                 <link
                     rel="stylesheet"
                     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -32,6 +32,6 @@ const App: React.FC = () => {
             </div>
         </ApolloProvider>
     );
-}
+};
 
-export default App;
+export default DashBoard;

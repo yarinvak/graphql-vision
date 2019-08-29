@@ -36,6 +36,7 @@ dashboard/build/
 dashboard/dist/
 # Dependency directories
 node_modules/
+/dashboard/node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
@@ -64,3 +65,4 @@ typings/
 /dashboard/dist/
 /dashboard/build/
 /dashboard/dist/
+/dist

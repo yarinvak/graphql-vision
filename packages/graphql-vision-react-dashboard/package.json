@@ -1,5 +1,5 @@
 {
-  "name": "graphql-vision-dashboard",
+  "name": "graphql-vision-react-dashboard",
   "version": "0.1.0",
   "main": "src/index.ts",
   "dependencies": {

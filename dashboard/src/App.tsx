@@ -6,7 +6,7 @@ const App: React.FC = () => {
 
     return (
         <div>
-            <DashBoard endpoint="http://localhost:4000/graphql" serviceName="Books Repository"/>
+            <DashBoard endpoint="http://localhost:4000/graphql" serviceName="Books Repository" keepAliveUri="http://localhost:4002/keepAlive"/>
         </div>
     );
 };

@@ -1,14 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './dashboard.css';
 import MainNavbar from "../navbar/navbar";
-import FieldUsageTable from "../field-usage-table/field-usage-table";
 import {ApolloProvider} from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
-import FieldUsagePie from "../field-usage-pie/field-usage-pie";
+import FieldsContainer from "../fields-container/fields-container";
+import {Badge} from "react-bootstrap";
 
-const DashBoard: React.FC<{ endpoint: string }> = (props) => {
+const DashBoard: React.FC<{ endpoint: string, serviceName: string }> = (props) => {
     const endpoint = props.endpoint;
 
     const client = new ApolloClient({
@@ -20,10 +19,8 @@ const DashBoard: React.FC<{ endpoint: string }> = (props) => {
             <div className="Dash">
                 <MainNavbar/>
                 <header className="App-header">
-                    <span>Endpoint: {endpoint}</span>
-                    <FieldUsageTable></FieldUsageTable>
-                    <FieldUsagePie></FieldUsagePie>
-
+                    <Badge style={{marginTop: 15, marginBottom: 10}} variant="primary">{props.serviceName} Tracing Listener</Badge>
+                    <FieldsContainer/>
                 </header>
             </div>
         </ApolloProvider>

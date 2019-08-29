@@ -1,7 +1,6 @@
 {
   "name": "graphql-vision-dashboard",
   "version": "0.1.0",
-  "private": true,
   "main": "src/index.ts",
   "dependencies": {
     "@apollo/react-hooks": "^3.0.1",

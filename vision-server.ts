@@ -19,6 +19,7 @@ export default class VisionServer {
 
     constructor() {
         this.dbHandler = new DBHandler();
+        this.dbHandler.db.traces = [];
         this.resolvers = {
             DateTime: GraphQLDateTime,
             IntString: IntString,
@@ -26,7 +27,7 @@ export default class VisionServer {
                 fieldUsages: getFieldUsagesResolver(this.dbHandler)
             },
             Mutation: {
-                addTracing: (obj, args) => {
+                addTracing: (obj: any, args: any) => {
                     this.dbHandler.db.traces.push(args.tracing);
                     return true;
                 }

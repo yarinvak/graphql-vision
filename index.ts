@@ -1,5 +1,5 @@
 import {ApolloServer} from 'apollo-server-express';
-import express from 'express';
+import * as express from 'express';
 import {queryDef} from './schema/query';
 import {mutationDef} from "./schema/mutation";
 import {tracingDef} from "./schema/input/tracerInput";
@@ -10,7 +10,7 @@ import {DBHandler} from "./db/db";
 import {IntString} from "./schema/scalars/intString";
 import {fieldUsageDef} from "./schema/output/fieldUsage";
 import {getFieldUsagesResolver} from "./resolvers/field-usages-resolver";
-import path from 'path';
+import * as path from 'path';
 
 
 export default class VisionServer {

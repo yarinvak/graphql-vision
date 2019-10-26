@@ -40,7 +40,7 @@ jobs:
           scope: '@yarinvak'
       - run: npm ci
       - run: npm login --registry=https://npm.pkg.github.com
-        with:
+        env:
           username: 'yarinvak'
           password: ${{secrets.GITHUB_TOKEN}}
           email: 'yarinvak@gmail.com'

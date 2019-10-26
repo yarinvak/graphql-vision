@@ -23,6 +23,10 @@ You have to configure your graphql service to send the apollo tracing objects to
 For example, we configured our graphql service (created by apollo server):
 
 ```javascript
+const trace = `mutation($tracing: TracerInput) {
+  addTracing(tracing: $tracing)
+}`;
+
 const server = new ApolloServer({
     typeDefs, resolvers, tracing: true, plugins: [{
         requestDidStart({}){

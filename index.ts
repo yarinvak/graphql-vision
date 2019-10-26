@@ -1,5 +1,5 @@
 import {ApolloServer} from 'apollo-server-express';
-import express from
+import express from 'express';
 import {queryDef} from './schema/query';
 import {mutationDef} from "./schema/mutation";
 import {tracingDef} from "./schema/input/tracerInput";

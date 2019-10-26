@@ -1,5 +1,5 @@
 {
-  "name": "graphql-vision-react-dashboard",
+  "name": "@yarinvak/graphql-vision-react-dashboard",
   "version": "0.1.0",
   "main": "src/index.ts",
   "description": "A dashboard react component for graphql-vision",
@@ -63,5 +63,11 @@
     "email": "yarinvak@gmail.com",
     "name": "Yarin Vaknin",
     "url": "https://github.com/yarinvak"
-  }
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "keywords": ["graphql"],
+  "contributors": ["yarin vaknin"],
+  "repository": "https://github.com/yarinvak/graphql-vision-react-dashboard"
 }

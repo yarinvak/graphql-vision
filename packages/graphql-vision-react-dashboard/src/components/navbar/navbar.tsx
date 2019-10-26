@@ -2,7 +2,7 @@ import React from 'react';
 import './navbar.css';
 import {Navbar} from 'react-bootstrap';
 // @ts-ignore
-import logo from '../../logo.svg';
+import logo from '../../graphql-vision.png';
 
 const MainNavbar: React.FC = () => {
     return (

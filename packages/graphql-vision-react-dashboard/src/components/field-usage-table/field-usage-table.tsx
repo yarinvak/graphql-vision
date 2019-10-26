@@ -16,9 +16,12 @@ const FieldUsageTable: React.FC = () => {
 
     if (loading) return (<p>Loading..</p>);
     if (error) return (<p>Error Generating Table</p>);
-    if (data.fieldUsages.length==0) return (<p>No fields to show</p>);
+    if (data.fieldUsages.length == 0) return (<p>
+        Waiting for tracing result...<br/>
+        Analytics Information appears once you send your apollo-tracing results from your graphql server to the vision server
+    </p>);
 
-    let sortedData = data.fieldUsages.sort((a:any,b:any) => b.count-a.count);
+    let sortedData = data.fieldUsages.sort((a: any, b: any) => b.count - a.count);
 
     let sum = 0;
     sortedData.forEach((field: any) => {
@@ -39,7 +42,7 @@ const FieldUsageTable: React.FC = () => {
                 sortedData.map(({name, count, averageDuration}: { name: string, count: number, averageDuration: number }) => {
                     return <tr>
                         <td>{name}</td>
-                        <td>{count} ({Math.round(count*100/sum)}%)</td>
+                        <td>{count} ({Math.round(count * 100 / sum)}%)</td>
                         <td>{averageDuration}</td>
                     </tr>
                 })

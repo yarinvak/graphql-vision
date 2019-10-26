@@ -16,7 +16,7 @@ const FieldUsagePie: React.FC = () => {
 
         if (loading) return (<p>Loading Pie Chart..</p>);
         if (error) return (<p>Error Generating Pie Chart</p>);
-        if (data.fieldUsages.length == 0) return (<p>No fields to show</p>);
+        if (data.fieldUsages.length == 0) return (<p>Waiting for tracing result...</p>);
 
         const state = {
                 series: data.fieldUsages.map(({count}: { count: number }) => count),

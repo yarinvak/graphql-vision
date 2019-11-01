@@ -68,5 +68,6 @@
   },
   "keywords": ["graphql"],
   "contributors": ["yarin vaknin"],
-  "repository": "https://github.com/yarinvak/graphql-vision-react-dashboard"
+  "repository": "https://github.com/yarinvak/graphql-vision-react-dashboard",
+  "files": ["dist/**/*"]
 }

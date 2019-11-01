@@ -1,9 +1,14 @@
-import {DBHandler} from "../db/db";
+import {getRepository} from 'typeorm';
+import {TracingResult} from '../db/entities/tracing-result';
 
-export const getFieldUsagesResolver = (dbHandler: DBHandler) => {
-    return () => {
+export const getFieldUsagesResolver = () => {
+    return async () => {
         let fieldUsages: any = {};
-        dbHandler.db.traces.forEach(trace => {
+        console.log("bla blabla");
+        const tracingRepository = getRepository(TracingResult);
+        const traces = await tracingRepository.find({});
+        console.log("traces: " + JSON.stringify(traces));
+        traces.forEach(trace => {
             let pathsTraveled = [];
             trace.execution.resolvers.forEach(resolver => {
                 let path = mapPath(resolver.path);

@@ -1,5 +1,5 @@
 import {ApolloServer} from 'apollo-server-express';
-import express from 'express';
+const express = require('express');
 import {queryDef} from './schema/query';
 import {mutationDef} from "./schema/mutation";
 import {tracingDef} from "./schema/input/tracerInput";
@@ -10,7 +10,10 @@ import {DBHandler} from "./db/db";
 import {IntString} from "./schema/scalars/intString";
 import {fieldUsageDef} from "./schema/output/fieldUsage";
 import {getFieldUsagesResolver} from "./resolvers/field-usages-resolver";
-import path from 'path';
+const path = require('path');
+import {addTrace} from "./resolvers/add-trace-resolver";
+import {createConnection} from "typeorm";
+
 
 
 export default class VisionServer {
@@ -24,19 +27,31 @@ export default class VisionServer {
             DateTime: GraphQLDateTime,
             IntString: IntString,
             Query: {
-                fieldUsages: getFieldUsagesResolver(this.dbHandler)
+                fieldUsages: getFieldUsagesResolver
             },
             Mutation: {
-                addTracing: (obj: any, args: any) => {
-                    this.dbHandler.db.traces.push(args.tracing);
-                    return true;
-                }
+                addTracing: addTrace
             }
         };
     }
 
-    run(port: number) {
+    async run(port: number) {
         const app = express();
+
+        await createConnection({
+            type: "postgres",
+            host: "localhost",
+            port: 5432,
+            username: "postgres",
+            password: "Aa123456",
+            database: "apollo-tracing",
+            entities: [
+                __dirname + "/db/entities/*.js"
+            ],
+            synchronize: true,
+        });
+
+        console.log("connection created");
 
         // Serve the static files from the React app
         app.use(express.static(path.join(__dirname, 'dashboard/build')));

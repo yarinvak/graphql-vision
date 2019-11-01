@@ -32,7 +32,7 @@
     "build": "tsc",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepublish": "tsc",
+    "prepublish": "tsc"
   },
   "eslintConfig": {
     "extends": "react-app"

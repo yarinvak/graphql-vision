@@ -11,8 +11,10 @@ import {IntString} from "./schema/scalars/intString";
 import {fieldUsageDef} from "./schema/output/fieldUsage";
 import {getFieldUsagesResolver} from "./resolvers/field-usages-resolver";
 import path from 'path';
-import csp from 'helmet-csp';
 
+interface VisionOptions{
+    port: number;
+}
 
 export default class VisionServer {
     dbHandler: DBHandler;
@@ -36,7 +38,7 @@ export default class VisionServer {
         };
     }
 
-    run(port: number) {
+    run(options: VisionOptions) {
         const app = express();
 
         // Serve the static files from the React app
@@ -49,9 +51,8 @@ export default class VisionServer {
 
         server.applyMiddleware({app});
 
-        app.listen(port, () => {
-            console.log(`🚀  Server ready at http://localhost:4000`);
+        app.listen(options.port, () => {
+            console.log(`🚀  Server ready at http://localhost:${options.port}`);
         });
-
     }
 }

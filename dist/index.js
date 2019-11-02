@@ -35,8 +35,7 @@ class VisionServer {
     run(port) {
         const app = express_1.default();
         // Serve the static files from the React app
-        app.use(express_1.default.static(path_1.default.join(__dirname, '../dashboard/build')));
-        // app.get('/', (req, res) => res.send('Hello World'));
+        app.use('/', express_1.default.static(path_1.default.join(__dirname, 'dashboard/build')));
         const server = new apollo_server_express_1.ApolloServer({
             typeDefs: [query_1.queryDef, mutation_1.mutationDef, tracerInput_1.tracingDef, fieldUsage_1.fieldUsageDef],
             resolvers: this.resolvers

@@ -1,6 +1,6 @@
 {
   "name": "graphql-vision",
-  "version": "0.1.4",
+  "version": "0.1.5e",
   "description": "A server for receiving apollo tracing elements and rendering the metrics into a react dashboard",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,7 +9,7 @@
     "build": "tsc && npm run copy-files",
     "copy-files": "copyfiles -u 1 ./dashboard/build/** ./dist/dashboard",
     "start": "npm run build & ts-node index.ts",
-    "prepublish": "tsc"
+    "prepublish": "npm run build"
   },
   "keywords": [],
   "author": {
@@ -24,6 +24,7 @@
     "copyfiles": "^2.1.1",
     "graphql": "^14.5.3",
     "graphql-iso-date": "^3.6.1",
+    "helmet-csp": "^2.9.4",
     "typescript": "^3.5.3"
   },
   "contributors": [

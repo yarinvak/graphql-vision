@@ -11,6 +11,7 @@ import {IntString} from "./schema/scalars/intString";
 import {fieldUsageDef} from "./schema/output/fieldUsage";
 import {getFieldUsagesResolver} from "./resolvers/field-usages-resolver";
 import path from 'path';
+import csp from 'helmet-csp';
 
 
 export default class VisionServer {
@@ -39,10 +40,7 @@ export default class VisionServer {
         const app = express();
 
         // Serve the static files from the React app
-        app.use(express.static(path.join(__dirname, '../dashboard/build')));
-
-
-        // app.get('/', (req, res) => res.send('Hello World'));
+        app.use('/', express.static(path.join(__dirname, 'dashboard/build')));
 
         const server = new ApolloServer({
             typeDefs: [queryDef, mutationDef, tracingDef, fieldUsageDef],

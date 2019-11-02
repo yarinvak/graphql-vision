@@ -1,28 +1,32 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getFieldUsagesResolver = function (dbHandler) {
-    return function () {
-        var fieldUsages = {};
-        dbHandler.db.traces.forEach(function (trace) {
-            trace.execution.resolvers.forEach(function (resolver) {
-                var path = mapPath(resolver.path);
+exports.getFieldUsagesResolver = (dbHandler) => {
+    return () => {
+        let fieldUsages = {};
+        dbHandler.db.traces.forEach(trace => {
+            let pathsTraveled = [];
+            trace.execution.resolvers.forEach(resolver => {
+                let path = mapPath(resolver.path);
                 if (path == '')
                     return;
                 if (!fieldUsages[path]) {
                     fieldUsages[path] = { count: 1, duration: resolver.duration };
                 }
                 else {
-                    fieldUsages[path].count++;
+                    if (pathsTraveled.indexOf(path) == -1) {
+                        fieldUsages[path].count++;
+                    }
                     fieldUsages[path].duration += resolver.duration;
                 }
+                pathsTraveled.push(path);
             });
         });
         return mapFieldUsages(fieldUsages);
     };
 };
-var mapFieldUsages = function (usages) {
-    var fieldUsages = [];
-    for (var key in usages) {
+const mapFieldUsages = (usages) => {
+    let fieldUsages = [];
+    for (let key in usages) {
         fieldUsages.push({
             name: key,
             count: usages[key].count,
@@ -31,15 +35,15 @@ var mapFieldUsages = function (usages) {
     }
     return fieldUsages;
 };
-var mapPath = function (pathArray) {
+const mapPath = (pathArray) => {
     if (!pathArray || pathArray.length == 0) {
         return '';
     }
-    var newPath = '';
-    pathArray.forEach(function (path) {
-        // if (!isNaN(path)) {
-        //     return;
-        // }
+    let newPath = '';
+    pathArray.forEach(path => {
+        if (!isNaN(path)) {
+            return;
+        }
         newPath += '/';
         newPath += path;
     });

@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var graphql_1 = require("graphql");
-var MAX_INT = 2147483647;
-var MIN_INT = -2147483648;
-var coerceIntString = function (value) {
+const graphql_1 = require("graphql");
+const MAX_INT = 2147483647;
+const MIN_INT = -2147483648;
+const coerceIntString = (value) => {
     if (Array.isArray(value)) {
-        throw new TypeError("IntString cannot represent an array value: [" + String(value) + "]");
+        throw new TypeError(`IntString cannot represent an array value: [${String(value)}]`);
     }
     if (!isNaN(value)) {
         if (value < MIN_INT || value > MAX_INT) {
-            throw new TypeError("Value is integer but outside of valid range for 32-bit signed integer: " + String(value));
+            throw new TypeError(`Value is integer but outside of valid range for 32-bit signed integer: ${String(value)}`);
         }
         return value;
     }
@@ -19,7 +19,7 @@ exports.IntString = new graphql_1.GraphQLScalarType({
     name: 'IntString',
     serialize: coerceIntString,
     parseValue: coerceIntString,
-    parseLiteral: function (ast) {
+    parseLiteral(ast) {
         if (ast.kind === graphql_1.Kind.INT) {
             return coerceIntString(parseInt(ast.value, 10));
         }

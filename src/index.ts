@@ -39,10 +39,10 @@ export default class VisionServer {
         const app = express();
 
         // Serve the static files from the React app
-        app.use(express.static(path.join(__dirname, 'dashboard/build')));
+        app.use(express.static(path.join(__dirname, '../dashboard/build')));
 
 
-        app.get('/', (req, res) => res.send('Hello World'));
+        // app.get('/', (req, res) => res.send('Hello World'));
 
         const server = new ApolloServer({
             typeDefs: [queryDef, mutationDef, tracingDef, fieldUsageDef],

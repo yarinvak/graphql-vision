@@ -32,7 +32,7 @@ class VisionServer {
             }
         };
     }
-    run(port) {
+    run(options) {
         const app = express_1.default();
         // Serve the static files from the React app
         app.use('/', express_1.default.static(path_1.default.join(__dirname, 'dashboard/build')));
@@ -41,8 +41,8 @@ class VisionServer {
             resolvers: this.resolvers
         });
         server.applyMiddleware({ app });
-        app.listen(port, () => {
-            console.log(`🚀  Server ready at http://localhost:4000`);
+        app.listen(options.port, () => {
+            console.log(`🚀  Server ready at http://localhost:${options.port}`);
         });
     }
 }

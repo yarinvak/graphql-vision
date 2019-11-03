@@ -1,0 +1,25 @@
+{
+  "name": "graphql-vision-plugin",
+  "version": "0.1.0",
+  "description": "a plugin to apollo server for sending tracing results to a graphql-vision server",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "graphql",
+    "graphql-vision",
+    "graphql-server"
+  ],
+  "author": "yarin vaknin",
+  "license": "ISC",
+  "files": [
+    "dist/**/*"
+  ],
+  "dependencies": {
+    "graphql-request": "^1.8.2"
+  }
+}

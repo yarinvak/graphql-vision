@@ -15,7 +15,6 @@ export default class GraphQLVisionPlugin {
         return {
             willSendResponse({response}: { response: any }) {
                 request(GraphQLVisionPlugin.endpoint, tracingRequest, {tracing: response.extensions.tracing}).then(() => {
-                    console.log("success")
                 }).catch(err => console.log(err));
             }
         }

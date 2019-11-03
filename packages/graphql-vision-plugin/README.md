@@ -12,7 +12,7 @@ npm i --save graphql-vision-plugin
 Add it to your apollo server configurations:
 
 ```typescript
-import GraphQLVisionPlugin from graphql-vision-plugin.ts;
+import GraphQLVisionPlugin from 'graphql-vision-plugin';
 
 const server = new ApolloServer({
     typeDefs, resolvers, tracing: true, plugins: [new GraphQLVisionPlugin('http://localhost:4000/graphql')]

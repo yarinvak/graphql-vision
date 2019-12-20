@@ -20,6 +20,8 @@ It will create a listener server with a graphql endpoint and a dashboard.
 ### Your GraphQL Service
 You have to configure your graphql service to send the apollo tracing objects to the listener service.
 
+You can use the simpler way, using the [graphql-vision-plugin](https://github.com/yarinvak/graphql-vision-plugin), or the manual way:
+
 For example, we configured our graphql service (created by apollo server):
 
 ```javascript

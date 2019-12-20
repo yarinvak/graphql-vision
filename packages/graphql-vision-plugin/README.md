@@ -19,4 +19,7 @@ const server = new ApolloServer({
 });
 ```
 
+The `tracing` argument must be set to `true`.
+The `GraphQLVisionPlugin` receives the address to a graphql-vision server that will monitor the requests to our server.
+
 You should send your graphql-vision server (graphql) endpoint to the constructor of the plugin.

@@ -11,11 +11,21 @@ import {IntString} from "./schema/scalars/intString";
 import {fieldUsageDef} from "./schema/output/fieldUsage";
 import {fieldUsageResolvers} from "./resolvers/field-usages-resolver";
 import path from 'path';
-import {createConnection} from "typeorm";
+import {ConnectionOptions, createConnection} from "typeorm";
 import {addTrace} from "./resolvers/add-trace-resolver";
 
-interface VisionOptions{
+interface VisionOptions {
     port: number;
+    dbOptions: DBOptions;
+}
+
+interface DBOptions {
+    type: string;
+    host: string;
+    port: number;
+    username: string;
+    password: string;
+    database: string;
 }
 
 export default class VisionServer {
@@ -39,19 +49,14 @@ export default class VisionServer {
 
     async run(options: VisionOptions) {
         const app = express();
-
+        const dbOptions = options.dbOptions;
         await createConnection({
-            type: "postgres",
-            host: "localhost",
-            port: 5432,
-            username: "postgres",
-            password: "Aa123456",
-            database: "apollo-tracing",
+            ...dbOptions,
             entities: [
                 __dirname + "/db/entities/*.js"
             ],
             synchronize: true,
-        });
+        } as ConnectionOptions);
 
         console.log("connection created");
 

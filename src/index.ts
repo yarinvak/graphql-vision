@@ -1,5 +1,5 @@
 import {ApolloServer} from 'apollo-server-express';
-const express = require('express');
+import express from 'express';
 import {queryDef} from './schema/query';
 import {mutationDef} from "./schema/mutation";
 import {tracingDef} from "./schema/input/tracerInput";
@@ -10,11 +10,12 @@ import {DBHandler} from "./db/db";
 import {IntString} from "./schema/scalars/intString";
 import {fieldUsageDef} from "./schema/output/fieldUsage";
 import {getFieldUsagesResolver} from "./resolvers/field-usages-resolver";
-const path = require('path');
-import {addTrace} from "./resolvers/add-trace-resolver";
+import path from 'path';
 import {createConnection} from "typeorm";
 
-
+interface VisionOptions{
+    port: number;
+}
 
 export default class VisionServer {
     dbHandler: DBHandler;
@@ -35,7 +36,7 @@ export default class VisionServer {
         };
     }
 
-    async run(port: number) {
+    async run(options: VisionOptions) {
         const app = express();
 
         await createConnection({
@@ -54,10 +55,7 @@ export default class VisionServer {
         console.log("connection created");
 
         // Serve the static files from the React app
-        app.use(express.static(path.join(__dirname, 'dashboard/build')));
-
-
-        app.get('/', (req, res) => res.send('Hello World'));
+        app.use('/', express.static(path.join(__dirname, 'dashboard/build')));
 
         const server = new ApolloServer({
             typeDefs: [queryDef, mutationDef, tracingDef, fieldUsageDef],
@@ -66,9 +64,8 @@ export default class VisionServer {
 
         server.applyMiddleware({app});
 
-        app.listen(port, () => {
-            console.log(`🚀  Server ready at http://localhost:4000`);
+        app.listen(options.port, () => {
+            console.log(`🚀  Server ready at http://localhost:${options.port}`);
         });
-
     }
 }

@@ -1,12 +1,15 @@
 {
   "name": "graphql-vision",
-  "version": "0.1.4",
+  "version": "0.1.7",
   "description": "A server for receiving apollo tracing elements and rendering the metrics into a react dashboard",
-  "main": "index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "start": "npm run build & ts-node index.ts"
+    "build": "tsc && npm run copy-files",
+    "copy-files": "copyfiles -u 1 ./dashboard/build/** ./dist/dashboard",
+    "start": "npm run build & ts-node index.ts",
+    "prepublish": "npm run build"
   },
   "keywords": [],
   "author": {
@@ -20,7 +23,7 @@
     "@types/graphql-iso-date": "^3.3.2",
     "@types/node": "^12.11.7",
     "apollo-server": "^2.9.0",
-    "express": "^4.17.1",
+    "copyfiles": "^2.1.1",
     "graphql": "^14.5.3",
     "graphql-iso-date": "^3.6.1",
     "pg": "^7.12.1",
@@ -31,5 +34,8 @@
   },
   "contributors": [
     "yarin vaknin"
+  ],
+  "files": [
+    "dist/**/*"
   ]
 }

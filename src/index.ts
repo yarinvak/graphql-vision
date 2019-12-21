@@ -9,9 +9,10 @@ import {
 import {DBHandler} from "./db/db";
 import {IntString} from "./schema/scalars/intString";
 import {fieldUsageDef} from "./schema/output/fieldUsage";
-import {getFieldUsagesResolver} from "./resolvers/field-usages-resolver";
+import {fieldUsageResolvers} from "./resolvers/field-usages-resolver";
 import path from 'path';
 import {createConnection} from "typeorm";
+import {addTrace} from "./resolvers/add-trace-resolver";
 
 interface VisionOptions{
     port: number;
@@ -28,7 +29,7 @@ export default class VisionServer {
             DateTime: GraphQLDateTime,
             IntString: IntString,
             Query: {
-                fieldUsages: getFieldUsagesResolver
+                fieldUsages: fieldUsageResolvers
             },
             Mutation: {
                 addTracing: addTrace

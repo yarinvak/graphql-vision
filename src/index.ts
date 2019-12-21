@@ -6,7 +6,6 @@ import {tracingDef} from "./schema/input/tracerInput";
 import {
     GraphQLDateTime
 } from 'graphql-iso-date';
-import {DBHandler} from "./db/db";
 import {IntString} from "./schema/scalars/intString";
 import {fieldUsageDef} from "./schema/output/fieldUsage";
 import {fieldUsageResolvers} from "./resolvers/field-usages-resolver";
@@ -29,12 +28,9 @@ interface DBOptions {
 }
 
 export default class VisionServer {
-    dbHandler: DBHandler;
     resolvers: any;
 
     constructor() {
-        this.dbHandler = new DBHandler();
-        this.dbHandler.db.traces = [];
         this.resolvers = {
             DateTime: GraphQLDateTime,
             IntString: IntString,

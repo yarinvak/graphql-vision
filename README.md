@@ -12,8 +12,18 @@ in your index.ts file:
     import VisionServer from 'graphql-vision';
 
     const visionServer = new VisionServer();
-    visionServer.run(4000); // send port as an argument
+    visionServer.run({port: 4000, dbOptions: {
+        type: "postgres",
+        host: "localhost",
+        port: 5432,
+        username: "postgres",
+        password: "postgres",
+        database: "apollo-tracing"
+    }});
 ```
+
+- The `port` argument stands for the port that the vision server will be running on.
+- The `dbOptions` argument stands for the type-orm configurations. The vision server requires a DB for saving the tracing results.
 
 It will create a listener server with a graphql endpoint and a dashboard.
 

@@ -1,28 +1,28 @@
-import {DBHandler} from "../db/db";
+import {getRepository} from 'typeorm';
+import {TracingResult} from '../db/entities/tracing-result';
 
-export const getFieldUsagesResolver = (dbHandler: DBHandler) => {
-    return () => {
-        let fieldUsages: any = {};
-        dbHandler.db.traces.forEach(trace => {
-            let pathsTraveled = [];
-            trace.execution.resolvers.forEach(resolver => {
-                let path = mapPath(resolver.path);
-                if (path == '') return;
-                if (!fieldUsages[path]) {
-                    fieldUsages[path] = {count: 1, duration: resolver.duration};
-                } else {
-                    if (pathsTraveled.indexOf(path) == -1) {
-                        fieldUsages[path].count++;
-                    }
-
-                    fieldUsages[path].duration += resolver.duration;
+export const fieldUsageResolvers = async (obj: any, args: any) => {
+    let fieldUsages: any = {};
+    const tracingRepository = getRepository(TracingResult);
+    const traces = await tracingRepository.find({});
+    traces.forEach(trace => {
+        let pathsTraveled = [];
+        trace.execution.resolvers.forEach(resolver => {
+            let path = mapPath(resolver.path);
+            if (path == '') return;
+            if (!fieldUsages[path]) {
+                fieldUsages[path] = {count: 1, duration: resolver.duration};
+            } else {
+                if (pathsTraveled.indexOf(path) == -1) {
+                    fieldUsages[path].count++;
                 }
-                pathsTraveled.push(path);
-            });
-        });
 
-        return mapFieldUsages(fieldUsages);
-    };
+                fieldUsages[path].duration += resolver.duration;
+            }
+            pathsTraveled.push(path);
+        });
+    });
+    return mapFieldUsages(fieldUsages);
 };
 
 const mapFieldUsages = (usages: any) => {

@@ -6,40 +6,55 @@ import {tracingDef} from "./schema/input/tracerInput";
 import {
     GraphQLDateTime
 } from 'graphql-iso-date';
-import {DBHandler} from "./db/db";
 import {IntString} from "./schema/scalars/intString";
 import {fieldUsageDef} from "./schema/output/fieldUsage";
-import {getFieldUsagesResolver} from "./resolvers/field-usages-resolver";
+import {fieldUsageResolvers} from "./resolvers/field-usages-resolver";
 import path from 'path';
+import {ConnectionOptions, createConnection} from "typeorm";
+import {addTrace} from "./resolvers/add-trace-resolver";
 
-interface VisionOptions{
+interface VisionOptions {
     port: number;
+    dbOptions: DBOptions;
+}
+
+interface DBOptions {
+    type: string;
+    host: string;
+    port: number;
+    username: string;
+    password: string;
+    database: string;
 }
 
 export default class VisionServer {
-    dbHandler: DBHandler;
     resolvers: any;
 
     constructor() {
-        this.dbHandler = new DBHandler();
-        this.dbHandler.db.traces = [];
         this.resolvers = {
             DateTime: GraphQLDateTime,
             IntString: IntString,
             Query: {
-                fieldUsages: getFieldUsagesResolver(this.dbHandler)
+                fieldUsages: fieldUsageResolvers
             },
             Mutation: {
-                addTracing: (obj: any, args: any) => {
-                    this.dbHandler.db.traces.push(args.tracing);
-                    return true;
-                }
+                addTracing: addTrace
             }
         };
     }
 
-    run(options: VisionOptions) {
+    async run(options: VisionOptions) {
         const app = express();
+        const dbOptions = options.dbOptions;
+        await createConnection({
+            ...dbOptions,
+            entities: [
+                __dirname + "/db/entities/*.js"
+            ],
+            synchronize: true,
+        } as ConnectionOptions);
+
+        console.log("connection created");
 
         // Serve the static files from the React app
         app.use('/', express.static(path.join(__dirname, 'dashboard/build')));

@@ -12,6 +12,8 @@ import {fieldUsageResolvers} from "./resolvers/field-usages-resolver";
 import path from 'path';
 import {ConnectionOptions, createConnection} from "typeorm";
 import {addTrace} from "./resolvers/add-trace-resolver";
+import {serviceInfoDef} from "./schema/output/service-info";
+import {serviceInfoResolver} from "./resolvers/service-info-resolver";
 
 interface VisionOptions {
     port: number;
@@ -35,7 +37,8 @@ export default class VisionServer {
             DateTime: GraphQLDateTime,
             IntString: IntString,
             Query: {
-                fieldUsages: fieldUsageResolvers
+                fieldUsages: fieldUsageResolvers,
+                serviceInfo: serviceInfoResolver
             },
             Mutation: {
                 addTracing: addTrace
@@ -60,7 +63,7 @@ export default class VisionServer {
         app.use('/', express.static(path.join(__dirname, 'dashboard/build')));
 
         const server = new ApolloServer({
-            typeDefs: [queryDef, mutationDef, tracingDef, fieldUsageDef],
+            typeDefs: [queryDef, mutationDef, tracingDef, fieldUsageDef, serviceInfoDef],
             resolvers: this.resolvers
         });
 

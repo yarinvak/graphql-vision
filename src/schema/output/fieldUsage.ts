@@ -5,5 +5,6 @@ export const fieldUsageDef = gql`
         name: String
         count: Int
         averageDuration: Int
+        lastRequestTime: DateTime
     }
 `;

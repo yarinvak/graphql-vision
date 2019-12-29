@@ -54,3 +54,11 @@ const server = new ApolloServer({
 });
 ```
 The `tracing:true` makes apollo server to return apollo tracing in response's extensions. Then we send these objects to the listener service created earlier, with url `http://localhost:4000/graphql`.
+
+## How to work on project
+- Clone the repository
+- `npm i`
+- `cd src/dashboard && npm i`
+
+You can now run the example project with the following command:
+- `npm run example`

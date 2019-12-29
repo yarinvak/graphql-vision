@@ -11,12 +11,14 @@ export const fieldUsageResolvers = async (obj: any, args: any) => {
             let path = mapPath(resolver.path);
             if (path == '') return;
             if (!fieldUsages[path]) {
-                fieldUsages[path] = {count: 1, duration: resolver.duration};
+                fieldUsages[path] = {count: 1, duration: resolver.duration, lastRequestTime: trace.startTime};
             } else {
                 if (pathsTraveled.indexOf(path) == -1) {
                     fieldUsages[path].count++;
                 }
-
+                if (trace.startTime > fieldUsages[path].lastRequestTime) {
+                    fieldUsages[path].lastRequestTime = trace.startTime;
+                }
                 fieldUsages[path].duration += resolver.duration;
             }
             pathsTraveled.push(path);
@@ -31,7 +33,8 @@ const mapFieldUsages = (usages: any) => {
         fieldUsages.push({
             name: key,
             count: usages[key].count,
-            averageDuration: Math.round(usages[key].duration / usages[key].count)
+            averageDuration: Math.round(usages[key].duration / usages[key].count),
+            lastRequestTime: usages[key].lastRequestTime,
         });
     }
     return fieldUsages;

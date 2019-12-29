@@ -5,6 +5,9 @@ export class TracingResult {
     @PrimaryGeneratedColumn()
     id: string;
 
+    @Column({type: "text", nullable: true})
+    senderUrl: string;
+
     @Column("int")
     version: number;
 

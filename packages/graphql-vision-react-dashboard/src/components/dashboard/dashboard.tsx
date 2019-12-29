@@ -5,8 +5,8 @@ import MainNavbar from "../navbar/navbar";
 import {ApolloProvider} from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import FieldsContainer from "../fields-container/fields-container";
-import {Badge} from "react-bootstrap";
-
+import {Tab, Tabs} from "react-bootstrap";
+import ServiceInfo from "../service-info/service-info";
 const DashBoard: React.FC<{ endpoint: string, serviceName: string }> = (props) => {
     const endpoint = props.endpoint;
 
@@ -19,8 +19,17 @@ const DashBoard: React.FC<{ endpoint: string, serviceName: string }> = (props) =
             <div className="Dash">
                 <MainNavbar/>
                 <header className="App-header">
-                    <Badge style={{marginTop: 15, marginBottom: 10}} variant="primary">{props.serviceName} Tracing Listener</Badge>
-                    <FieldsContainer/>
+                    <Tabs defaultActiveKey="usage" id="uncontrolled-tab-example" className="Dashboard-Tabs">
+                        <Tab eventKey="usage" title="Fields Usage">
+                            <FieldsContainer/>
+                        </Tab>
+                        <Tab eventKey="service" title="Service Info">
+                            <ServiceInfo/>
+                        </Tab>
+                        <Tab eventKey="contact" title="Contact">
+                            blabla
+                        </Tab>
+                    </Tabs>
                 </header>
             </div>
         </ApolloProvider>

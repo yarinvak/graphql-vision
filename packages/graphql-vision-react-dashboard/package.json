@@ -6,6 +6,9 @@
   "description": "A dashboard react component for graphql-vision",
   "dependencies": {
     "@apollo/react-hooks": "^3.0.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "@fortawesome/react-fontawesome": "^0.1.8",
     "@types/bootstrap": "^4.3.1",
     "@types/jest": "24.0.18",
     "@types/node": "12.7.2",

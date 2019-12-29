@@ -6,7 +6,7 @@ import logo from '../../graphql-vision.png';
 
 const MainNavbar: React.FC = () => {
     return (
-        <Navbar bg="dark" variant="dark">
+        <Navbar className="Dash-Nav" variant="dark">
             <Navbar.Brand href="#home">
                 <img
                     alt=""

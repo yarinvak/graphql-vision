@@ -1,27 +1,18 @@
 import React from 'react';
-import {gql} from 'apollo-boost';
-import {useQuery} from "@apollo/react-hooks";
 import Chart from "react-apexcharts";
+import {FieldUsageProps} from "../fields-container/fields-container";
 
-const FieldUsagePie: React.FC = () => {
-        const {loading, error, data} = useQuery(gql`
-            {
-                fieldUsages{
-                    name
-                    count
-                    averageDuration
-                }
-            }
-        `, {pollInterval: 500});
-
-        if (loading) return (<p>Loading Pie Chart..</p>);
-        if (error) return (<p>Error Generating Pie Chart</p>);
-        if (data.fieldUsages.length == 0) return (<p>Waiting for tracing result...</p>);
-
+const FieldUsagePie: React.FC<FieldUsageProps> = (props: FieldUsageProps) => {
+        const data = props.results;
         const state = {
                 series: data.fieldUsages.map(({count}: { count: number }) => count),
                 chartOptions: {
                     labels: data.fieldUsages.map(({name}: { name: string }) => name),
+                    legend: {
+                        labels: {
+                            colors: "#b7e0ff"
+                        }
+                    }
                 }
             }
         ;

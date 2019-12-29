@@ -1,26 +1,10 @@
 import React from 'react';
 import {Table} from 'react-bootstrap';
-import {gql} from 'apollo-boost';
-import {useQuery} from "@apollo/react-hooks";
+import './field-usage-table.css';
+import {FieldUsageProps} from "../fields-container/fields-container";
 
-const FieldUsageTable: React.FC = () => {
-    const {loading, error, data} = useQuery(gql`
-        {
-            fieldUsages{
-                name
-                count
-                averageDuration
-            }
-        }
-    `, {pollInterval: 500});
-
-    if (loading) return (<p>Loading..</p>);
-    if (error) return (<p>Error Generating Table</p>);
-    if (data.fieldUsages.length == 0) return (<p>
-        Waiting for tracing result...<br/>
-        Analytics Information appears once you send your apollo-tracing results from your graphql server to the vision server
-    </p>);
-
+const FieldUsageTable: React.FC<FieldUsageProps> = (props:FieldUsageProps) => {
+    const data = props.results;
     let sortedData = data.fieldUsages.sort((a: any, b: any) => b.count - a.count);
 
     let sum = 0;
@@ -29,21 +13,23 @@ const FieldUsageTable: React.FC = () => {
     });
 
     return (
-        <Table bordered hover>
+        <Table bordered striped hover variant="dark" responsive className="Usage-Table">
             <thead>
             <tr>
                 <th>Field Path</th>
                 <th>Usage Count</th>
                 <th>Average Resolving Time (ns)</th>
+                <th>Last Request Date</th>
             </tr>
             </thead>
             <tbody>
             {
-                sortedData.map(({name, count, averageDuration}: { name: string, count: number, averageDuration: number }) => {
-                    return <tr>
+                sortedData.map(({name, count, averageDuration, lastRequestTime}: { name: string, count: number, averageDuration: number, lastRequestTime: string}, index: number) => {
+                    return <tr key={index}>
                         <td>{name}</td>
                         <td>{count} ({Math.round(count * 100 / sum)}%)</td>
                         <td>{averageDuration}</td>
+                        <td>{new Date(lastRequestTime).toLocaleString()}</td>
                     </tr>
                 })
             }

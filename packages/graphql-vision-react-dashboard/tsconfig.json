@@ -17,7 +17,8 @@
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "declaration": true
+    "declaration": true,
+    "watch": false
   },
   "include": [
     "src"

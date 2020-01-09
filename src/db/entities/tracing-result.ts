@@ -8,7 +8,7 @@ export class TracingResult {
     @Column({type: "text", nullable: true})
     senderUrl: string;
 
-    @Column("int")
+    @Column({type: "int", nullable: true})
     version: number;
 
     @Column("timestamp")

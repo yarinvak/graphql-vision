@@ -23,7 +23,16 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
+      - name: npm install, build, and test
+        run: |
+          cd src && cd dashboard
+          npm i
+          npm run build --if-present
+          cd .. && cd ..
+          npm ci
+          npm run build --if-present
+        env:
+          CI: true
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}

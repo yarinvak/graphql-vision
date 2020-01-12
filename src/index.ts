@@ -14,6 +14,7 @@ import {ConnectionOptions, createConnection} from "typeorm";
 import {addTrace} from "./resolvers/add-trace-resolver";
 import {serviceInfoDef} from "./schema/output/service-info";
 import {serviceInfoResolver} from "./resolvers/service-info-resolver";
+import {senderIdsResolver} from "./resolvers/sender-ids-resolver";
 
 interface VisionOptions {
     port: number;
@@ -38,7 +39,8 @@ export default class VisionServer {
             IntString: IntString,
             Query: {
                 fieldUsages: fieldUsageResolvers,
-                serviceInfo: serviceInfoResolver
+                serviceInfo: serviceInfoResolver,
+                senderIds: senderIdsResolver,
             },
             Mutation: {
                 addTracing: addTrace

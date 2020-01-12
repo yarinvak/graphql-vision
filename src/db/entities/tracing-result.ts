@@ -6,7 +6,7 @@ export class TracingResult {
     id: string;
 
     @Column({type: "text", nullable: true})
-    senderUrl: string;
+    senderId: string;
 
     @Column({type: "int", nullable: true})
     version: number;

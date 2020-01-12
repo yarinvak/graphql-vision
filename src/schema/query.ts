@@ -2,7 +2,8 @@ import {gql} from 'apollo-server';
 
 export const queryDef = gql`    
     type Query {
-        fieldUsages: [FieldUsage]
+        fieldUsages(senderId: String): [FieldUsage]
         serviceInfo: ServiceInfo
+        senderIds: [String]
     }
 `;

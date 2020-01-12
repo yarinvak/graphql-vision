@@ -1,12 +1,12 @@
 import {TracingResult} from "../db/entities/tracing-result";
 import {getRepository} from "typeorm";
-export const addTrace = async (obj: any, args: any) => {
-    if (args.tracing) {
+
+export const addTrace = async (obj: any, {tracing, senderId}: { tracing: any, senderId: string }) => {
+    if (tracing) {
         const tracingRepository = getRepository(TracingResult);
-        await tracingRepository.save({...args.tracing, senderUrl: "http://localhost:4000/graphql"});
+        await tracingRepository.save({...tracing, senderId: senderId});
         return true;
-    }
-    else {
-        throw new Error ("Tracing is undefined");
+    } else {
+        throw new Error("Tracing is undefined");
     }
 };

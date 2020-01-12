@@ -1,10 +1,14 @@
 import {getRepository} from 'typeorm';
 import {TracingResult} from '../db/entities/tracing-result';
 
-export const fieldUsageResolvers = async (obj: any, args: any) => {
+export const fieldUsageResolvers = async (obj: any, {senderId}: {senderId: string}) => {
     let fieldUsages: any = {};
     const tracingRepository = getRepository(TracingResult);
-    const traces = await tracingRepository.find({});
+    let findOptions = {};
+    if (senderId){
+        findOptions = {where: {senderId: senderId}};
+    }
+    const traces = await tracingRepository.find(findOptions);
     traces.forEach(trace => {
         let pathsTraveled = [];
         trace.execution.resolvers.forEach(resolver => {
@@ -55,4 +59,3 @@ const mapPath = (pathArray: any[]) => {
     });
     return newPath;
 };
-

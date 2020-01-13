@@ -1,8 +1,8 @@
 import React from 'react';
 import Chart from "react-apexcharts";
-import {FieldUsageProps} from "../fields-container/fields-container";
+import {ServiceVisionContainerProps} from "../fields-container/service-vision-container";
 
-const FieldUsagePie: React.FC<FieldUsageProps> = (props: FieldUsageProps) => {
+const FieldUsagePie: React.FC<ServiceVisionContainerProps> = (props: ServiceVisionContainerProps) => {
         const data = props.results;
         const state = {
                 series: data.fieldUsages.map(({count}: { count: number }) => count),

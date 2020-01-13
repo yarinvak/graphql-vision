@@ -1,9 +1,9 @@
 import React from 'react';
 import {Table} from 'react-bootstrap';
 import './field-usage-table.css';
-import {FieldUsageProps} from "../fields-container/fields-container";
+import {ServiceVisionContainerProps} from "../fields-container/service-vision-container";
 
-const FieldUsageTable: React.FC<FieldUsageProps> = (props:FieldUsageProps) => {
+const FieldUsageTable: React.FC<ServiceVisionContainerProps> = (props:ServiceVisionContainerProps) => {
     const data = props.results;
     let sortedData = data.fieldUsages.sort((a: any, b: any) => b.count - a.count);
 

@@ -4,9 +4,7 @@ import './dashboard.css';
 import MainNavbar from "../navbar/navbar";
 import {ApolloProvider} from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
-import FieldsContainer from "../fields-container/fields-container";
-import {Tab, Tabs} from "react-bootstrap";
-import ServiceInfo from "../service-info/service-info";
+import ServicesPills from "../services-pills/services-pills";
 const DashBoard: React.FC<{ endpoint: string, serviceName: string }> = (props) => {
     const endpoint = props.endpoint;
 
@@ -18,18 +16,9 @@ const DashBoard: React.FC<{ endpoint: string, serviceName: string }> = (props) =
         <ApolloProvider client={client}>
             <div className="Dash">
                 <MainNavbar/>
+                <div style={{marginBottom: 40}}></div>
                 <header className="App-header">
-                    <Tabs defaultActiveKey="usage" id="uncontrolled-tab-example" className="Dashboard-Tabs">
-                        <Tab eventKey="usage" title="Fields Usage">
-                            <FieldsContainer/>
-                        </Tab>
-                        <Tab eventKey="service" title="Service Info">
-                            <ServiceInfo/>
-                        </Tab>
-                        <Tab eventKey="contact" title="Contact">
-                            blabla
-                        </Tab>
-                    </Tabs>
+                    <ServicesPills/>
                 </header>
             </div>
         </ApolloProvider>

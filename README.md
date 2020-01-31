@@ -1,4 +1,4 @@
-![logo](vision.jpg?raw=true)
+![logo](graphqlvision.png?raw=true)
 # graphql-vision
 a dashboard &amp; server for handling tracing results sent by a graphql endpoint
 

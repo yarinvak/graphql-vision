@@ -4,6 +4,60 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A dashboard react component for graphql-vision",
+  "scripts": {
+    "start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "build": "tsc && npm run copy-template",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "copy-template": "copyfiles -u 1 ./src/**/*.css ./src/**/*.png ./src/**/*.svg ./dist",
+    "prepublish": "npm run build",
+    "semantic-release": "semantic-release"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": true
+        }
+      ],
+      "@semantic-release/github"
+    ],
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      {
+        "path": "@semantic-release/git",
+        "assets": [
+          "package.json",
+          "package-lock.json",
+          "CHANGELOG.md"
+        ],
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ]
+  },
   "dependencies": {
     "@apollo/react-hooks": "^3.0.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
@@ -30,30 +84,6 @@
     "@types/react-dom": "16.9.0",
     "react-scripts": "3.1.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "react-build": "react-scripts build",
-    "build": "tsc && npm run copy-template",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "copy-template": "copyfiles -u 1 ./src/**/*.css ./src/**/*.png ./src/**/*.svg ./dist",
-    "prepublish": "npm run build"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
     "@types/react": "16.9.2",
     "@types/react-dom": "16.9.0",
@@ -61,7 +91,12 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "@commitlint/cli": "^8.3.4",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@semantic-release/changelog": "^3.0.6",
+    "@semantic-release/git": "^7.1.0-beta.11",
+    "husky": "^3.1.0"
   },
   "author": {
     "email": "yarinvak@gmail.com",

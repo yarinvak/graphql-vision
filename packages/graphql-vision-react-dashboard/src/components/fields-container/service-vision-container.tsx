@@ -10,8 +10,8 @@ export interface ServiceVisionContainerProps {
     results: any;
 }
 
-const ServiceVisionContainer: React.FC<{ senderId?: string }> = (props: { senderId?: string }) => {
-    const senderId = props.senderId;
+const ServiceVisionContainer: React.FC<{ pollInterval: number, senderId?: string }> = (props: { pollInterval: number, senderId?: string }) => {
+    const {senderId, pollInterval} = props;
     const {loading, error, data} = useQuery(gql`
         query($senderId: String){
             fieldUsages(senderId: $senderId){
@@ -21,7 +21,7 @@ const ServiceVisionContainer: React.FC<{ senderId?: string }> = (props: { sender
                 lastRequestTime
             }
         }
-    `, {pollInterval: 500, variables: {senderId: senderId}});
+    `, {pollInterval, variables: {senderId: senderId}});
 
     if (loading) return (<div className="Service-Vision"><p>Loading..</p></div>);
     if (error) return (<div className="Service-Vision">
@@ -32,7 +32,8 @@ const ServiceVisionContainer: React.FC<{ senderId?: string }> = (props: { sender
         Analytics Information appears once you send your apollo-tracing results from your graphql server to the vision
         server
     </p></div>);
-    const header = senderId? <h4><span className="badge badge-info">{senderId}</span> metrics</h4>: <h4>all metrics</h4>;
+    const header = senderId ? <h4><span className="badge badge-info">{senderId}</span> metrics</h4> :
+        <h4>all metrics</h4>;
     return (
         <div className="Service-Vision">
             {header}

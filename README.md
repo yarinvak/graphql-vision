@@ -1,4 +1,5 @@
-![logo](graphqlvision.png)
+<img src="graphqlvision.png" width="350"/>
+
 # graphql-vision
 a dashboard &amp; server for handling tracing results sent by a graphql endpoint
 

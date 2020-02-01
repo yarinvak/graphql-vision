@@ -20,7 +20,7 @@ export default class GraphQLVisionPlugin {
                     tracing: response.extensions.tracing,
                     senderId: GraphQLVisionPlugin.senderId
                 }).then(() => {
-                }).catch(err => console.log(err));
+                }).catch();
             }
         }
     }

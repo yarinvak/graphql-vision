@@ -7,7 +7,37 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "semantic-release": "semantic-release"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": true
+        }
+      ],
+      "@semantic-release/github"
+    ],
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      {
+        "path": "@semantic-release/git",
+        "assets": [
+          "package.json",
+          "package-lock.json",
+          "CHANGELOG.md"
+        ],
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ]
   },
   "keywords": [
     "graphql",
@@ -21,5 +51,12 @@
   ],
   "dependencies": {
     "graphql-request": "^1.8.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.4",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@semantic-release/changelog": "^3.0.6",
+    "@semantic-release/git": "^7.1.0-beta.11",
+    "husky": "^3.1.0"
   }
 }

@@ -3,7 +3,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {gql} from 'apollo-boost';
 import {useQuery} from "@apollo/react-hooks";
-import ErrorContainer from "../error/error";
+import ErrorContainer from "../dashboard/service-vision-container/error/error";
 
 const ServiceInfo: React.FC = () => {
     const {loading, error, data} = useQuery(gql`

@@ -1,10 +1,11 @@
 import React from "react";
-import FieldUsageTable from "../field-usage-table/field-usage-table";
-import FieldUsagePie from "../field-usage-pie/field-usage-pie";
+import FieldUsageTable from "./field-usage-table/field-usage-table";
+import FieldUsagePie from "./field-usage-pie/field-usage-pie";
 import './service-vision-container.css';
 import {useQuery} from "@apollo/react-hooks";
 import {gql} from 'apollo-boost';
-import ErrorContainer from "../error/error";
+import ErrorContainer from "./error/error";
+import {KeepAlivePoint} from "./keepalive-point/keepalive-point";
 
 export interface ServiceVisionContainerProps {
     results: any;
@@ -32,7 +33,7 @@ const ServiceVisionContainer: React.FC<{ pollInterval: number, senderId?: string
         Analytics Information appears once you send your apollo-tracing results from your graphql server to the vision
         server
     </p></div>);
-    const header = senderId ? <h4><span className="badge badge-info">{senderId}</span> metrics</h4> :
+    const header = senderId ? <h4><KeepAlivePoint pollInterval={pollInterval} senderId={senderId}/><span className="badge badge-info">{senderId}</span> metrics</h4> :
         <h4>all metrics</h4>;
     return (
         <div className="Service-Vision">

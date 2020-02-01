@@ -1,7 +1,7 @@
 import React from 'react';
 import {Table} from 'react-bootstrap';
 import './field-usage-table.css';
-import {ServiceVisionContainerProps} from "../fields-container/service-vision-container";
+import {ServiceVisionContainerProps} from "../service-vision-container";
 
 const FieldUsageTable: React.FC<ServiceVisionContainerProps> = (props:ServiceVisionContainerProps) => {
     const data = props.results;

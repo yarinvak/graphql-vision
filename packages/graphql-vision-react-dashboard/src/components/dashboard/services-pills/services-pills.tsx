@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {gql} from 'apollo-boost';
 import {useQuery} from "@apollo/react-hooks";
 import {Tab, Tabs} from "react-bootstrap";
-import ServiceVisionContainer from "../fields-container/service-vision-container";
+import ServiceVisionContainer from "../service-vision-container/service-vision-container";
 
 const ServicesPills: React.FC<{pollInterval: number}> = (props) => {
     const pollInterval = props.pollInterval;

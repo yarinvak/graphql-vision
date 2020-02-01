@@ -1,6 +1,6 @@
 import React from "react";
 // @ts-ignore
-import logo from '../../graphql-vision.png';
+import logo from '../../../../graphql-vision.png';
 
 const ErrorContainer: React.FC = () => {
     return (<div>

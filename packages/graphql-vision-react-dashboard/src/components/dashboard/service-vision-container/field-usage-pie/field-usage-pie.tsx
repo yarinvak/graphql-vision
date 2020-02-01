@@ -1,6 +1,6 @@
 import React from 'react';
 import Chart from "react-apexcharts";
-import {ServiceVisionContainerProps} from "../fields-container/service-vision-container";
+import {ServiceVisionContainerProps} from "../service-vision-container";
 
 const FieldUsagePie: React.FC<ServiceVisionContainerProps> = (props: ServiceVisionContainerProps) => {
         const data = props.results;

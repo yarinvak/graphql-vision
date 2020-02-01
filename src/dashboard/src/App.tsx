@@ -10,7 +10,7 @@ const App: React.FC = () => {
             <Helmet>
                 <title>GraphQL Vision</title>
             </Helmet>
-            <DashBoard endpoint="/graphql" serviceName="GraphQL Vision"/>
+            <DashBoard endpoint="/graphql" pollInterval={1000}/>
         </div>
     );
 };

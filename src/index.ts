@@ -15,6 +15,7 @@ import {addTrace} from "./resolvers/add-trace-resolver";
 import {serviceInfoDef} from "./schema/output/service-info";
 import {serviceInfoResolver} from "./resolvers/service-info-resolver";
 import {senderIdsResolver} from "./resolvers/sender-ids-resolver";
+import {getKeepAlive, saveKeepAlvie} from "./resolvers/keepalive-resolver";
 
 interface VisionOptions {
     port: number;
@@ -41,9 +42,11 @@ export default class VisionServer {
                 fieldUsages: fieldUsageResolvers,
                 serviceInfo: serviceInfoResolver,
                 senderIds: senderIdsResolver,
+                keepAlive: getKeepAlive
             },
             Mutation: {
-                addTracing: addTrace
+                addTracing: addTrace,
+                keepAlive: saveKeepAlvie
             }
         };
     }

@@ -1,3 +1,15 @@
+.square{
+    height: 22px;
+    width: 22px;
+    display: inline-block;
+    margin-right: 4px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 2px;
+    background: #17a2b8;
+    color:white;
+}
+
 .nav-link{
     background-color: #172534;
     color: #bdbdbd;

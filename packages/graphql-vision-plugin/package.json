@@ -1,6 +1,6 @@
 {
   "name": "graphql-vision-plugin",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "a plugin to apollo server for sending tracing results to a graphql-vision server",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

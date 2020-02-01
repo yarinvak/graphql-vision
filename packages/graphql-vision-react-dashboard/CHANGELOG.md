@@ -1,3 +1,10 @@
+# [0.5.0](https://github.com/yarinvak/graphql-vision-react-dashboard/compare/v0.4.0...v0.5.0) (2020-02-01)
+
+
+### Features
+
+* **keep-alive:** add keepalive component that updates live ([c333052](https://github.com/yarinvak/graphql-vision-react-dashboard/commit/c333052afe72104dc80d8bfd627d94b1dd37bc8c))
+
 # [0.4.0](https://github.com/yarinvak/graphql-vision-react-dashboard/compare/v0.3.0...v0.4.0) (2020-01-31)
 
 

@@ -5,5 +5,6 @@ export const queryDef = gql`
         fieldUsages(senderId: String): [FieldUsage]
         serviceInfo: ServiceInfo
         senderIds: [String]
+        keepAlive(senderId: String!): Boolean
     }
 `;

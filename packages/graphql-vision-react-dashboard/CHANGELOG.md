@@ -1,3 +1,10 @@
+## [0.6.1](https://github.com/yarinvak/graphql-vision-react-dashboard/compare/v0.6.0...v0.6.1) (2020-02-01)
+
+
+### Bug Fixes
+
+* **bug-fix:** bug fix of css import that did not work ([1cf1eb7](https://github.com/yarinvak/graphql-vision-react-dashboard/commit/1cf1eb7d327899fa85dc3a33526c08a7bf207e5d))
+
 # [0.6.0](https://github.com/yarinvak/graphql-vision-react-dashboard/compare/v0.5.0...v0.6.0) (2020-02-01)
 
 

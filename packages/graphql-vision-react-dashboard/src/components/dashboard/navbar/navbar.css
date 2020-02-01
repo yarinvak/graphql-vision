@@ -5,3 +5,9 @@
 .Dash-Nav {
     background-color: #09141C !important;
 }
+
+.octicon {
+    display: inline-block;
+    vertical-align: text-top;
+    fill: white;
+}

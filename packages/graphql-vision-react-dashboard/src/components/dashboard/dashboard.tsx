@@ -5,6 +5,7 @@ import MainNavbar from "./navbar/navbar";
 import {ApolloProvider} from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import ServicesPills from "./services-pills/services-pills";
+
 const DashBoard: React.FC<{ endpoint: string, pollInterval: number }> = (props) => {
     const endpoint = props.endpoint;
     const pollInterval = props.pollInterval;

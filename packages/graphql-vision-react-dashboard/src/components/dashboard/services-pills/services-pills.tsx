@@ -5,6 +5,7 @@ import {gql} from 'apollo-boost';
 import {useQuery} from "@apollo/react-hooks";
 import {Tab, Tabs} from "react-bootstrap";
 import ServiceVisionContainer from "../service-vision-container/service-vision-container";
+import '../../../../node_modules/@fortawesome/fontawesome-free/css/all.css';
 
 const ServicesPills: React.FC<{pollInterval: number}> = (props) => {
     const pollInterval = props.pollInterval;
@@ -16,12 +17,12 @@ const ServicesPills: React.FC<{pollInterval: number}> = (props) => {
 
     if (!loading && !error) {
         const tabs = data.senderIds.map((x:string)=>{
-            const title= (<div><div className="square">{x.toUpperCase().charAt(0)}</div> {x}</div>);
+                const title= (<div><div className="square">{x.toUpperCase().charAt(0)}</div> {x}</div>);
             return (<Tab eventKey={x} title={title}><ServiceVisionContainer pollInterval={pollInterval} senderId={x}/></Tab>);
         });
         return (
             <div className="Services-Pills">
-                <Tabs defaultActiveKey="all" id="uncontrolled-tab-example" className="Dashboard-Tabs">
+                <Tabs defaultActiveKey="all" id="uncontrolled-tab-example" className="Dashboard-Tabs" transition={false}>
                     <Tab eventKey="all" title="All">
                         <ServiceVisionContainer pollInterval={pollInterval} />
                     </Tab>

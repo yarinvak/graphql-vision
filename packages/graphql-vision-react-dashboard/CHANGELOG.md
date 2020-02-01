@@ -1,3 +1,10 @@
+# [0.6.0](https://github.com/yarinvak/graphql-vision-react-dashboard/compare/v0.5.0...v0.6.0) (2020-02-01)
+
+
+### Features
+
+* **github&headers:** add tabs headers and github icon ([e113cc4](https://github.com/yarinvak/graphql-vision-react-dashboard/commit/e113cc4d3f726249215990c441d4cd3b4b1a3db3))
+
 # [0.5.0](https://github.com/yarinvak/graphql-vision-react-dashboard/compare/v0.4.0...v0.5.0) (2020-02-01)
 
 

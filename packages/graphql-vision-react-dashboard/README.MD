@@ -1,5 +1,6 @@
 GraphQL Vision Dashboard
 --------------------------
+![version](https://img.shields.io/npm/v/graphql-vision-react-dashboard)
 
 This is a react component of a dashboard retreiving tracing information of graphql requests from the graphql vision server.
 

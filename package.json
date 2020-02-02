@@ -9,7 +9,6 @@
     "build": "tsc && npm run copy-files",
     "copy-files": "copyfiles -u 1 ./src/dashboard/build/** ./dist/",
     "start": "npm run build & ts-node index.ts",
-    "prepublish": "npm run build",
     "example": "cd src && cd dashboard && npm run build && cd .. && cd .. && npm run build && cd dist/example && node index",
     "semantic-release": "semantic-release"
   },

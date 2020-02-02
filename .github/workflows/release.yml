@@ -21,7 +21,9 @@ jobs:
           npm run build --if-present
           cd .. && cd ..
           npm ci
-          npm run build
+          npm run build --if-present
+        env:
+          CI: true
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.gh_token }}

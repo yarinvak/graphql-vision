@@ -1,3 +1,12 @@
+## [0.5.7](https://github.com/yarinvak/graphql-vision/compare/v0.5.6...v0.5.7) (2020-02-02)
+
+
+### Bug Fixes
+
+* **release:** fix release 4 ([ead44c3](https://github.com/yarinvak/graphql-vision/commit/ead44c389f1a3144448bc1c4ad6b13e8093a6262))
+* **release:** fix release 5 ([78ef941](https://github.com/yarinvak/graphql-vision/commit/78ef94167e203b040d4ead3ee39859a0c15340e4))
+* **release:** fix release 6 ([52776dd](https://github.com/yarinvak/graphql-vision/commit/52776dd475874dac94fee28468ca08bc4804454f))
+
 ## [0.5.6](https://github.com/yarinvak/graphql-vision/compare/v0.5.5...v0.5.6) (2020-02-02)
 
 

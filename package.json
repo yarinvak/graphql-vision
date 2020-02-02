@@ -1,6 +1,6 @@
 {
   "name": "graphql-vision",
-  "version": "0.5.1",
+  "version": "0.5.5",
   "description": "A server for receiving apollo tracing elements and rendering the metrics into a react dashboard",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

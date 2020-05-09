@@ -1,9 +1,9 @@
 import React from 'react';
-import {Table} from 'react-bootstrap';
 import './field-usage-table.css';
 import {ServiceVisionContainerProps} from "../service-vision-container";
 import Path from "./path/path";
 import Duration from "./duration/duration";
+import DashTable, {TableData} from "../../table/dash-table";
 
 const FieldUsageTable: React.FC<ServiceVisionContainerProps> = (props: ServiceVisionContainerProps) => {
     const data = props.results;
@@ -14,29 +14,21 @@ const FieldUsageTable: React.FC<ServiceVisionContainerProps> = (props: ServiceVi
         sum += field.count;
     });
 
-    return (
-        <Table bordered striped hover variant="dark" responsive className="Usage-Table">
-            <thead>
-            <tr>
-                <th>Field Path</th>
-                <th>Usage Count</th>
-                <th>Average Resolving Time</th>
-                <th>Last Request Date</th>
-            </tr>
-            </thead>
-            <tbody>
-            {
-                sortedData.map(({name: path, count, averageDuration, lastRequestTime}: { name: string, count: number, averageDuration: number, lastRequestTime: string }, index: number) => {
-                    return <tr key={index}>
-                        <td>{<Path path={path}/>}</td>
-                        <td>{count} ({Math.round(count * 100 / sum)}%)</td>
-                        <td><Duration duration={averageDuration}/></td>
-                        <td>{new Date(lastRequestTime).toLocaleString()}</td>
-                    </tr>
-                })
-            }
-            </tbody>
-        </Table>);
+    const tableData: TableData = {
+        columns: [
+            {name: 'path', label: 'Field Path'},
+            {name: 'count', label: 'Usage Count'},
+            {name: 'duration', label: 'Average Resolving Time'},
+            {name: 'lastRequestDate', label: 'Last Request Date'}
+        ],
+        rows: sortedData.map((data: any) => ({
+            path: <Path path={data.name}/>,
+            count: `${data.count} (${Math.round(data.count * 100 / sum)}%)`,
+            duration: <Duration duration={data.averageDuration}/>,
+            lastRequestDate: new Date(data.lastRequestTime).toLocaleString()
+        })),
+    };
+    return <DashTable data={tableData}/>;
 };
 
 

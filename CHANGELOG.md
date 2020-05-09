@@ -1,3 +1,10 @@
+## [0.5.8](https://github.com/yarinvak/graphql-vision/compare/v0.5.7...v0.5.8) (2020-05-09)
+
+
+### Bug Fixes
+
+* make duration a bigint ([2c9d19a](https://github.com/yarinvak/graphql-vision/commit/2c9d19abedad2774488d91dcbd316bd14858fb10))
+
 ## [0.5.7](https://github.com/yarinvak/graphql-vision/compare/v0.5.6...v0.5.7) (2020-02-02)
 
 

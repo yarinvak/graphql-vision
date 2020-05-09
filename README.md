@@ -1,6 +1,9 @@
 <img src="graphqlvision.png" width="350"/>
 
 # graphql-vision
+![npm](https://img.shields.io/npm/v/graphql-vision)
+![Node CI](https://github.com/yarinvak/graphql-vision/workflows/Node%20CI/badge.svg?branch=master)
+
 a dashboard &amp; server for handling tracing results sent by a graphql endpoint
 
 ## Getting Started

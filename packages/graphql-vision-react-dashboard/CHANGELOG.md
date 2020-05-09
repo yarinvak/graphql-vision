@@ -1,3 +1,10 @@
+## [0.6.2](https://github.com/yarinvak/graphql-vision-react-dashboard/compare/v0.6.1...v0.6.2) (2020-05-09)
+
+
+### Bug Fixes
+
+* warning messages fixed ([e7c331c](https://github.com/yarinvak/graphql-vision-react-dashboard/commit/e7c331ce6a5b2d93e506b486ed88f9ab72abc53a))
+
 ## [0.6.1](https://github.com/yarinvak/graphql-vision-react-dashboard/compare/v0.6.0...v0.6.1) (2020-02-01)
 
 

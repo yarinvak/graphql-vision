@@ -1,6 +1,6 @@
 {
   "name": "graphql-vision-react-dashboard",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A dashboard react component for graphql-vision",

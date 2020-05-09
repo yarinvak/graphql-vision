@@ -1,3 +1,10 @@
+# [0.4.0](https://github.com/yarinvak/graphql-vision-plugin/compare/v0.3.1...v0.4.0) (2020-05-09)
+
+
+### Features
+
+* nest interval inside plugin constructor ([abc90c8](https://github.com/yarinvak/graphql-vision-plugin/commit/abc90c8139e33fa40d0bf5c3deafbf02c4657134))
+
 ## [0.3.1](https://github.com/yarinvak/graphql-vision-plugin/compare/v0.3.0...v0.3.1) (2020-05-09)
 
 

@@ -1,4 +1,6 @@
 # graphql-vision-plugin
+![npm](https://img.shields.io/npm/v/graphql-vision-plugin)
+![Node CI](https://github.com/yarinvak/graphql-vision-plugin/workflows/Node%20CI/badge.svg)
 
 You can use this plugin in your apollo server in order to send tracing results to a graphql-vision server.
 

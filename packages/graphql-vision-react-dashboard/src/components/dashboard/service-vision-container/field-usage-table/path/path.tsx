@@ -14,7 +14,7 @@ const Path: React.FC<{ path: string }> = (props: { path: string }) => {
                             arrow = <span>&nbsp;/&nbsp;</span>
                             badgeColor = 'badge-light';
                         }
-                        return <div style={{display: 'inline-block'}}>
+                        return <div key={i} style={{display: 'inline-block'}}>
                             <span className={"badge " + badgeColor}>{part}</span>
                             {arrow}
                         </div>

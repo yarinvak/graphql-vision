@@ -27,7 +27,7 @@ const DashTable: React.FC<{ data: TableData }> = (props) => {
                 rows.map((row, i) =>
                     <tr key={i}>
                         {
-                            columns.map(column => <td>{row[column.name]}</td>)
+                            columns.map((column, j) => <td key={j}>{row[column.name]}</td>)
                         }
                     </tr>)
             }

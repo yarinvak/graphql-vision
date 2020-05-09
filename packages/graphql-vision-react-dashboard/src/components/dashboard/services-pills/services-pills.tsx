@@ -15,9 +15,9 @@ const ServicesPills: React.FC<{pollInterval: number}> = (props) => {
     `, {pollInterval, fetchPolicy: 'no-cache'});
 
     if (!loading && !error) {
-        const tabs = data.senderIds.map((x:string)=>{
+        const tabs = data.senderIds.map((x:string, i: number)=>{
                 const title= (<div><div className="square">{x.toUpperCase().charAt(0)}</div> {x}</div>);
-            return (<Tab eventKey={x} title={title}><ServiceVisionContainer pollInterval={pollInterval} senderId={x}/></Tab>);
+            return (<Tab eventKey={x} key={i} title={title}><ServiceVisionContainer pollInterval={pollInterval} senderId={x}/></Tab>);
         });
         return (
             <div className="Services-Pills">

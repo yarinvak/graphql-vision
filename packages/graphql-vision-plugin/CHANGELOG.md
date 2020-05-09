@@ -1,3 +1,10 @@
+## [0.4.1](https://github.com/yarinvak/graphql-vision-plugin/compare/v0.4.0...v0.4.1) (2020-05-09)
+
+
+### Bug Fixes
+
+* add error messages ([ff9ee45](https://github.com/yarinvak/graphql-vision-plugin/commit/ff9ee45d3dc562af07b277dadb2df0681ea295e8))
+
 # [0.4.0](https://github.com/yarinvak/graphql-vision-plugin/compare/v0.3.1...v0.4.0) (2020-05-09)
 
 

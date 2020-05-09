@@ -17,7 +17,7 @@ export class TracingResult {
     @Column("timestamp")
     endTime: string;
 
-    @Column("bigint")
+    @Column({type: "bigint", nullable: true})
     duration: number;
 
     @Column({type: "simple-json", nullable: true})

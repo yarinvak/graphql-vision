@@ -16,13 +16,13 @@ import GraphQLVisionPlugin from 'graphql-vision-plugin';
 import {keepAliveInterval} from 'graphql-vision-plugin';
 
 const server = new ApolloServer({
-    typeDefs, resolvers, tracing: true, plugins: [new GraphQLVisionPlugin('http://localhost:4000/graphql', 'my-app')]
+    typeDefs, resolvers, tracing: true, plugins: [new GraphQLVisionPlugin('http://localhost:4000/graphql', 'my-app', 4000)]
 });
 
 keepAliveInterval(); // it will send a frequent keep alive to the vision server, and will be presented in the dashboard
 ```
 
 The `tracing` argument must be set to `true`.
-The `GraphQLVisionPlugin` receives the address to a graphql-vision server that will monitor the requests to our server, and our application id (sender-id).
+The `GraphQLVisionPlugin` receives the address to a graphql-vision server that will monitor the requests to our server, and our application id (sender-id). It also receives an interval in milliseconds for a keep-alive, so it knows when your service works.
 
 You should send your graphql-vision server (graphql) endpoint to the constructor of the plugin.

@@ -30,7 +30,7 @@ export default class GraphQLVisionPlugin {
                         senderId: GraphQLVisionPlugin.senderId
                     });
                 } catch (e) {
-                    throw new Error("Could not send a request to the GraphQL-Vision server. Does your server available for requests?");
+                    console.warn(`Could not send a request to the GraphQL-Vision server. Is your server available for requests? ${e}`)
                 }
             }
         }

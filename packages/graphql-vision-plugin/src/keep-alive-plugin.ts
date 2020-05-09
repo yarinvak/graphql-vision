@@ -12,7 +12,7 @@ export const keepAliveInterval = (intervalInMillis: number) => {
                 senderId: GraphQLVisionPlugin.senderId
             });
         } catch (e) {
-            throw new Error("Keep alive interval failed sending a keep-alive to the GraphQL-Vision Server. Is your vision server active?");
+            console.log(`Keep alive interval failed: ${e}`);
         }
     }, intervalInMillis ?? 5000)
 };

@@ -19,12 +19,19 @@ export default class GraphQLVisionPlugin {
 
     requestDidStart({}) {
         return {
-            willSendResponse({response}: { response: any }) {
-                request(GraphQLVisionPlugin.endpoint, tracingRequest, {
-                    tracing: response.extensions.tracing,
-                    senderId: GraphQLVisionPlugin.senderId
-                }).then(() => {
-                }).catch();
+            async willSendResponse({response}: { response: any }) {
+                const tracing = response?.extensions?.tracing;
+                if (!tracing) {
+                    throw new Error("Cannot send tracing results to GraphQL-Vision server because tracing is undefined! Please set `tracing: true` in your apollo-server configuration");
+                }
+                try {
+                    await request(GraphQLVisionPlugin.endpoint, tracingRequest, {
+                        tracing,
+                        senderId: GraphQLVisionPlugin.senderId
+                    });
+                } catch (e) {
+                    throw new Error("Could not send a request to the GraphQL-Vision server. Does your server available for requests?");
+                }
             }
         }
     }

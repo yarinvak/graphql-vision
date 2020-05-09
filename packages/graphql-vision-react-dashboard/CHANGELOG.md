@@ -1,3 +1,10 @@
+# [0.7.0](https://github.com/yarinvak/graphql-vision-react-dashboard/compare/v0.6.2...v0.7.0) (2020-05-09)
+
+
+### Features
+
+* prettify table & duration ([e669f1b](https://github.com/yarinvak/graphql-vision-react-dashboard/commit/e669f1b7c17e666eeda40d720c2189cce1fc3154))
+
 ## [0.6.2](https://github.com/yarinvak/graphql-vision-react-dashboard/compare/v0.6.1...v0.6.2) (2020-05-09)
 
 

@@ -1,3 +1,10 @@
+# [0.6.0](https://github.com/yarinvak/graphql-vision/compare/v0.5.9...v0.6.0) (2020-05-11)
+
+
+### Features
+
+* update dashboard and add time usages ([a1449d0](https://github.com/yarinvak/graphql-vision/commit/a1449d01a20522e8c3c6cd6f53fa26da2d39a1c1))
+
 ## [0.5.9](https://github.com/yarinvak/graphql-vision/compare/v0.5.8...v0.5.9) (2020-05-09)
 
 

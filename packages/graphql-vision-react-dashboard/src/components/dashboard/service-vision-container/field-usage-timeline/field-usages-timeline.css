@@ -1,0 +1,7 @@
+.apexcharts-tooltip {
+    color: #000000 !important;
+}
+
+.apexcharts-tooltip .apexcharts-tooltip-series-group.active {
+    background: #ffffff !important;
+}

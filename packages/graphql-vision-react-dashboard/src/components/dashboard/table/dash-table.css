@@ -1,3 +1,7 @@
 .usage-table{
     background-color: #172B3A !important;
 }
+
+.table-responsive{
+    overflow-y: hidden !important;
+}

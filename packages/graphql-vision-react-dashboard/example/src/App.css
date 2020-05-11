@@ -1,3 +1,6 @@
+body{
+  background-color: #0F202D !important;
+}
 .App {
   text-align: center;
 }
@@ -9,7 +12,6 @@
 }
 
 .App-header {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

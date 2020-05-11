@@ -1,38 +1,34 @@
 import React from 'react';
 import Chart from "react-apexcharts";
-import {ServiceVisionContainerProps} from "../service-vision-container";
 
-const FieldUsagePie: React.FC<ServiceVisionContainerProps> = (props: ServiceVisionContainerProps) => {
-        const data = props.results;
+const FieldUsagePie: React.FC<{ results: any, className?: string }> =
+    (props: { results: any, className?: string }) => {
+        const {results, className} = props;
         const state = {
-                series: data.fieldUsages.map(({count}: { count: number }) => count),
-                chartOptions: {
-                    labels: data.fieldUsages.map(({name}: { name: string }) => name),
-                    legend: {
-                        labels: {
-                            colors: "#b7e0ff"
-                        }
+            series: results.fieldUsages.map(({count}: { count: number }) => count),
+            chartOptions: {
+                labels: results.fieldUsages.map(({name}: { name: string }) => name),
+                legend: {
+                    labels: {
+                        colors: "#b7e0ff"
                     }
-                }
+                },
             }
-        ;
+
+        };
 
         return (
-            <div className="app">
-                <div className="row">
-                    <div className="mixed-chart">
-                        <Chart
-                            options={state.chartOptions}
-                            series={state.series}
-                            type="pie"
-                            width="500"
-                        />
-                    </div>
-                </div>
+            <div className={className}>
+                <Chart
+                    options={state.chartOptions}
+                    series={state.series}
+                    type="pie"
+                    width={"100%"}
+                    height={350}
+                />
             </div>
         );
-    }
-;
+    };
 
 
 export default FieldUsagePie;

@@ -6,6 +6,8 @@
     background-color: #172B3A;
     padding-top: 10px;
     color: white;
+    max-height: 800px;
+    overflow-y: scroll;
 }
 
 .Usage-Info {

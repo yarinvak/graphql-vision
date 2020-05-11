@@ -7,7 +7,7 @@ import DashTable, {TableData} from "../../table/dash-table";
 
 const FieldUsageTable: React.FC<ServiceVisionContainerProps> = (props: ServiceVisionContainerProps) => {
     const data = props.results;
-    let sortedData = data.fieldUsages.sort((a: any, b: any) => b.count - a.count);
+    let sortedData = data?.fieldUsages.sort((a: any, b: any) => b.count - a.count);
 
     let sum = 0;
     sortedData.forEach((field: any) => {

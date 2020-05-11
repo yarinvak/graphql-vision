@@ -14,7 +14,7 @@ const DashTable: React.FC<{ data: TableData }> = (props) => {
     const {columns, rows} = props.data;
 
     return (
-        <Table bordered striped hover variant="dark" responsive className="usage-table">
+        <Table bordered striped hover variant="dark" className="usage-table">
             <thead>
             <tr>
                 {

@@ -1,3 +1,10 @@
+## [0.6.1](https://github.com/yarinvak/graphql-vision/compare/v0.6.0...v0.6.1) (2020-05-11)
+
+
+### Bug Fixes
+
+* extend connection options ([fd1abab](https://github.com/yarinvak/graphql-vision/commit/fd1ababca586dc2ac54ce987fce77c4f43991644))
+
 # [0.6.0](https://github.com/yarinvak/graphql-vision/compare/v0.5.9...v0.6.0) (2020-05-11)
 
 

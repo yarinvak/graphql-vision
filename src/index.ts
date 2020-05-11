@@ -21,16 +21,7 @@ import {timedUsagesResolver} from "./resolvers/timed-usages-resolver";
 
 interface VisionOptions {
     port: number;
-    dbOptions: DBOptions;
-}
-
-interface DBOptions {
-    type: string;
-    host: string;
-    port: number;
-    username: string;
-    password: string;
-    database: string;
+    dbOptions: ConnectionOptions;
 }
 
 export default class VisionServer {

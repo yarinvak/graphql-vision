@@ -1,3 +1,10 @@
+# [0.8.0](https://github.com/yarinvak/graphql-vision-react-dashboard/compare/v0.7.0...v0.8.0) (2020-05-11)
+
+
+### Features
+
+* add statistics table ([fb6eb37](https://github.com/yarinvak/graphql-vision-react-dashboard/commit/fb6eb374027bd696e766d631e94ce7a1fc20ea59))
+
 # [0.7.0](https://github.com/yarinvak/graphql-vision-react-dashboard/compare/v0.6.2...v0.7.0) (2020-05-09)
 
 

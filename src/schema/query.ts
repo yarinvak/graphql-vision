@@ -6,5 +6,6 @@ export const queryDef = gql`
         serviceInfo: ServiceInfo
         senderIds: [String]
         keepAlive(senderId: String!): Boolean
+        timedUsages(senderId: String): [TimedUsage]
     }
 `;

@@ -16,6 +16,8 @@ import {serviceInfoDef} from "./schema/output/service-info";
 import {serviceInfoResolver} from "./resolvers/service-info-resolver";
 import {senderIdsResolver} from "./resolvers/sender-ids-resolver";
 import {getKeepAlive, saveKeepAlvie} from "./resolvers/keepalive-resolver";
+import {timedUsageDef} from "./schema/output/timed-usage";
+import {timedUsagesResolver} from "./resolvers/timed-usages-resolver";
 
 interface VisionOptions {
     port: number;
@@ -42,7 +44,8 @@ export default class VisionServer {
                 fieldUsages: fieldUsageResolvers,
                 serviceInfo: serviceInfoResolver,
                 senderIds: senderIdsResolver,
-                keepAlive: getKeepAlive
+                keepAlive: getKeepAlive,
+                timedUsages: timedUsagesResolver,
             },
             Mutation: {
                 addTracing: addTrace,
@@ -57,7 +60,7 @@ export default class VisionServer {
         await createConnection({
             ...dbOptions,
             entities: [
-                __dirname + "/db/entities/*.js"
+                __dirname + "/db/entities/*.*(js|ts)",
             ],
             synchronize: true,
         } as ConnectionOptions);
@@ -68,7 +71,7 @@ export default class VisionServer {
         app.use('/', express.static(path.join(__dirname, 'dashboard/build')));
 
         const server = new ApolloServer({
-            typeDefs: [queryDef, mutationDef, tracingDef, fieldUsageDef, serviceInfoDef],
+            typeDefs: [queryDef, mutationDef, tracingDef, fieldUsageDef, serviceInfoDef, timedUsageDef],
             resolvers: this.resolvers
         });
 

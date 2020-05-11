@@ -44,7 +44,7 @@ const mapFieldUsages = (usages: any) => {
     return fieldUsages;
 };
 
-const mapPath = (pathArray: any[]) => {
+export const mapPath = (pathArray: any[]) => {
     if (!pathArray || pathArray.length == 0) {
         return '';
     }

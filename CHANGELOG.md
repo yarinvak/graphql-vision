@@ -1,3 +1,10 @@
+## [0.5.9](https://github.com/yarinvak/graphql-vision/compare/v0.5.8...v0.5.9) (2020-05-09)
+
+
+### Bug Fixes
+
+* make duration nullable ([e863193](https://github.com/yarinvak/graphql-vision/commit/e863193a7cf833246803686a2cc37a86e5aadae9))
+
 ## [0.5.8](https://github.com/yarinvak/graphql-vision/compare/v0.5.7...v0.5.8) (2020-05-09)
 
 

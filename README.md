@@ -1,4 +1,4 @@
-<img src="vision-logo.png" width="400"/>
+<img src="vision.png"/>
 
 # graphql-vision
 ![npm](https://img.shields.io/npm/v/graphql-vision)

@@ -1,6 +1,6 @@
 {
   "name": "graphql-vision-react-dashboard",
-  "version": "0.8.0",
+  "version": "0.8.1-alpha.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A dashboard react component for graphql-vision",
@@ -79,25 +79,25 @@
     "react-bootstrap": "^1.0.0-beta.12"
   },
   "peerDependencies": {
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
     "@types/react": "16.9.2",
     "@types/react-dom": "16.9.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-scripts": "3.1.1"
   },
   "devDependencies": {
-    "@types/react": "16.9.2",
-    "@types/react-dom": "16.9.0",
-    "css-loader": "^3.4.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1",
-    "typescript": "^3.5.3",
     "@commitlint/cli": "^8.3.4",
     "@commitlint/config-conventional": "^8.3.4",
     "@semantic-release/changelog": "^3.0.6",
     "@semantic-release/git": "^7.1.0-beta.11",
-    "husky": "^3.1.0"
+    "@types/react": "16.9.2",
+    "@types/react-dom": "16.9.0",
+    "css-loader": "^3.4.2",
+    "husky": "^3.1.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts": "3.1.1",
+    "typescript": "^3.5.3"
   },
   "author": {
     "email": "yarinvak@gmail.com",

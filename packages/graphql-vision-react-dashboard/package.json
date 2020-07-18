@@ -13,7 +13,7 @@
     "copy-template": "copyfiles -u 1 ./src/**/*.css ./src/**/*.png ./src/**/*.svg ./dist",
     "prepublish": "npm run build",
     "semantic-release": "semantic-release",
-    "x": "npm install",
+    "in": "yarn install",
     "sem": "npx semantic-release"
   },
   "eslintConfig": {

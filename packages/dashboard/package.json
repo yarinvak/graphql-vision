@@ -16,7 +16,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "in": "yarn install"
+    "up": "yarn upgrade"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,6 +44,6 @@
     "style-loader": "^1.0.0",
     "svg-inline-loader": "^0.8.0",
     "ts-loader": "^6.0.4",
-    "typescript": "^3.5.3"
+    "typescript": "^3.9.7"
   }
 }

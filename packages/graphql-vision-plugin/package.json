@@ -7,10 +7,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "in": "yarn install",
-    "prepublish": "npm run build",
+    "prepublish": "yarn run build",
     "semantic-release": "semantic-release",
-    "sem": "npx semantic-release"
+    "sem": "npx semantic-release",
+    "up": "yarn upgrade"
   },
   "publishConfig": {
     "access": "public"

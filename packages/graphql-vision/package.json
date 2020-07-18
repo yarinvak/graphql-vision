@@ -7,13 +7,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "lerna run clean --stream --parallel",
-    "build": "tsc && npm run copy-files",
+    "build": "tsc && yarn run copy-files",
     "copy-files": "copyfiles -u 1 \"../dashboard/build/**\" \"./dist\" -V -E -a",
     "start": "npm run build & ts-node index.ts",
     "example": "cd dist/example && node index",
     "semantic-release": "semantic-release",
-    "in": "yarn install",
-    "sem": "npx semantic-release"
+    "sem": "npx semantic-release",
+    "up": "yarn upgrade"
   },
   "keywords": [],
   "author": {

@@ -7,14 +7,14 @@
   "scripts": {
     "start": "react-scripts start",
     "react-build": "react-scripts build",
-    "build": "tsc && npm run copy-template",
+    "build": "tsc && yarn run copy-template",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "copy-template": "copyfiles -u 1 ./src/**/*.css ./src/**/*.png ./src/**/*.svg ./dist",
-    "prepublish": "npm run build",
+    "prepublish": "yarn run build",
     "semantic-release": "semantic-release",
-    "in": "yarn install",
-    "sem": "npx semantic-release"
+    "sem": "npx semantic-release",
+    "up": "yarn upgrade"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -99,7 +99,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
-    "typescript": "^3.5.3"
+    "typescript": "^3.9.7"
   },
   "author": {
     "email": "yarinvak@gmail.com",

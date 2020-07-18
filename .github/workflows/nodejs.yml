@@ -19,7 +19,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
       run: |
-        npm i && cd src/dashboard && npm i
+        npm i && cd src/dashboard && npm i && cd ..
         lerna run x
         lerna run build
       env:

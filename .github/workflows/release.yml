@@ -16,7 +16,9 @@ jobs:
           node-version: 12
       - name: npm install, build, and test
         run: |
-          npm run build-all
+          npm i && cd src/dashboard && npm i
+          lerna run x
+          lerna run build
         env:
           CI: true
       - name: Release
@@ -24,7 +26,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.gh_token }}
           NPM_TOKEN: ${{ secrets.npm_token }}
         run: |
-          npx semantic-release
-          cd packages/graphql-vision-plugin && npx semantic-release
-          cd ..
-          cd packages/graphql-vision-react-dashboard && npx semantic-release
+          lerna run sem

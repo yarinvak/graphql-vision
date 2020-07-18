@@ -1,5 +1,5 @@
 {
-  "name": "dashboard",
+  "name": "graphql-vision-dashboard",
   "version": "1.0.0",
   "dependencies": {
     "@apollo/react-hooks": "^3.0.1",

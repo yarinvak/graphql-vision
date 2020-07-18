@@ -71,7 +71,8 @@
     "@semantic-release/changelog": "^3.0.6",
     "@semantic-release/git": "^7.1.0-beta.11",
     "husky": "^3.1.0",
-    "lerna": "^3.22.1"
+    "lerna": "^3.22.1",
+    "graphql-vision-dashboard": "1.0.0"
   },
   "contributors": [
     "yarin vaknin"

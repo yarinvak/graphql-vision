@@ -20,7 +20,6 @@ jobs:
     - name: npm install, build, and test
       run: |
         yarn install
-        yarn run lerna run in
-        yarn run lerna run build
+        yarn run lerna bootstrap
       env:
         CI: true

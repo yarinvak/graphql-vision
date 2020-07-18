@@ -16,6 +16,7 @@ jobs:
           node-version: 12
       - name: npm install, build, and test
         run: |
+          npm i -g lerna
           npm i && cd src/dashboard && npm i
           lerna run x
           lerna run build
